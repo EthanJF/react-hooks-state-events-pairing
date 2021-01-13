@@ -1,27 +1,27 @@
 import React, { useState } from 'react'
 
-function Comment(props){
+const Comment = (props) => {
 
     const { id, user, comment } = props.comment
 
     const [upvotes, setUpvotes ] = useState(0)
     const [downvotes, setDownvotes ] = useState(0)
 
-    function handleUpvoteClick(){
+    const handleUpvoteClick = () => {
         setUpvotes((upvotes) => upvotes + 1)
     }
 
-    function handleDownvoteClick(){
+    const handleDownvoteClick = () => {
         setDownvotes((downvotes) => downvotes + 1)
     }
 
     return(
-        <div data-id={id}>
+        <div>
             <h4>{user}</h4>
             <p>{comment}</p>
             <button id="upvotes" onClick={handleUpvoteClick}>{upvotes} 👍</button><button id="downvotes" onClick={handleDownvoteClick}>{downvotes}👎</button>
             <br/>
-            <button onClick={props.handleDeleteComment}>Delete Comment</button>
+            <button onClick={() => props.handleDeleteComment(id)}>Delete Comment</button>
         </div>
     )
 }

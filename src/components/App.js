@@ -2,7 +2,7 @@ import video from "../data/video.js";
 import CommentList from "./CommentList.js"
 import React, { useState } from 'react'
 
-function App() {
+const App = () => {
   console.log("Here's your data:", video);
 
   const { title, embedUrl, views, createdAt, upvotes, downvotes, comments } = video
@@ -10,11 +10,11 @@ function App() {
   const [ likes, setLikes ] = useState(upvotes)
   const [ dislikes, setDislikes ] = useState(downvotes)
 
-  function handleLikeClick(){
+  const handleLikeClick = () => {
     setLikes((likes) => likes + 1)
   }
 
-  function handleDislikeClick(){
+  const handleDislikeClick = () => {
     setDislikes((dislikes) => dislikes + 1)
   } 
 
@@ -24,8 +24,8 @@ function App() {
         width="919"
         height="525"
         src={embedUrl}
-        frameborder="0"
-        allowfullscreen
+        frameBorder="0"
+        allowFullScreen
         title={title}
       />
       <h1>{title}</h1>
